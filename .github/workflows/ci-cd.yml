@@ -22,3 +22,14 @@ jobs:
 
       - name: Push Docker Image
         run: docker push DevopsCC
+
+      - name: Build and Push Docker Image
+        run: |
+            docker build -t igorlts10/Projet-Devops:latest .
+            docker push igorlts10/Projet-Devops:latest
+        env:
+            DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+
+
